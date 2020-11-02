@@ -53,8 +53,8 @@ export default {
           { require: true, message: '请输入登陆名称', trigger: 'blur' },
           {
             min: 4,
-            max: 10,
-            message: '请输入长度在4到10个字符',
+            max: 20,
+            message: '请输入长度在4到20个字符',
             trigger: 'blur'
           }
         ],
@@ -77,12 +77,11 @@ export default {
     login() {
       this.$refs.loginFormRef.validate(async valid => {
         if (!valid) return
-        // 因为无法调用api接口，所以暂时不用验证
-        // const { data: res } = await this.$http.post('login', this.loginForm)
-        // if (res.meta.status !== 200) return this.$message.error('登陆失败')
-        // this.$message.success('登陆成功')
-        // console.log(res)
-        // window.sessionStorage.setItem('token', res.data.token)
+        const { data: res } = await this.$http.post('login', this.loginForm)
+        if (res.meta.status !== 200) return this.$message.error('登陆失败')
+        this.$message.success('登陆成功')
+        console.log(res)
+        window.sessionStorage.setItem('token', res.data.token)
         this.$router.push('/home')
       })
     }

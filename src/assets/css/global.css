@@ -29,3 +29,23 @@ body,
 .el-cascader-panel {
     height: 350px;
 }
+
+.el-steps {
+    margin: 15px 0;
+}
+
+.el-step__title {
+    font-size: 13px;
+}
+
+.el-form-item__content {
+    margin-left: 0 !important;
+}
+
+.el-form-item__label {
+    float: none;
+}
+
+.ql-editor {
+    min-height: 300px;
+}
